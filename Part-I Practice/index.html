@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>JS Practice Session</title>
+    </head>
+    
+    <body>
+        <script>
+            // Variables
+            var a = 5;
+            var b = "Hello";
+            c = 6.5;
+            
+            console.log(a+b);
+            
+            
+            sayHello("Students");
+            
+            ///Functions 2 ways
+            ///These types of functions are hoisted
+            function sayHello(p){
+                console.log("Hello" + p);
+                var chapter = "Javascript";
+            }
+            
+            var sayHi = function(){
+                console.log("Hi");
+                
+                for(var i=5;i<=10;i++){
+                    console.log(i*i);
+                }
+                
+                //Arrays
+                fruits = ["mango","apple"];
+                fruits.push("banana");
+                fruits.push("papaya");
+                fruits.unshift("pineapple");
+                
+                for(var f=0;f<fruits.length;f++){
+                    console.log(fruits[f]);
+                }
+                
+                fruits.forEach(function(fruit,index){
+                        console.log(fruit+" "+index);
+                });
+            }
+            //console.log(chapter);
+            
+            ///Objects in JavaScript
+            ///JSON - JavaScript Object Notation
+            var bird = {
+                x : 10,
+                y : 20,
+                state: "flying",
+                color:"blue",
+                weapons: ["gun","sword"],
+                
+                fly : function(){
+                    this.state = "flying";
+                    console.log("Bird is flying");
+                },
+                jump:function(){
+                    this.state = "jumping";
+                    console.log("Bird is Jumping");
+                },
+                addWeapon:function(w){
+                    this.weapons.push(w);  
+                },
+            };
+            
+            sayHi();
+            
+            function Student(name,c){
+                this.name = name;
+                this.college = c;
+                this.age = 20;
+            
+                
+                this.dance = function(){
+                    console.log(this.name + "is dancing");
+                }
+                
+                
+            }
+            s = new Student("Prateek","DTU");
+            s2 = new Student("Nitin","NIEC");
+            
+            function gameIsRunning(){
+                console.log("game is running");
+                
+                 if(bird.state=="jumping"){
+                        clearInterval(loop);
+                 }
+        
+            }
+            
+            var loop = setInterval(gameIsRunning,300);
+            
+            function myclick(e){
+                console.log(e);
+                console.log("You clicked the mouse");
+            }
+            function clickOver(x){
+                console.log("You released the mouse");
+            }
+            
+            function myPress(e){
+                console.log(e);
+                console.log("You pressed the key");
+            }
+            
+            function pressOver(e){
+                console.log("You released the key");
+            }
+            
+            ///Event Listeners
+            document.addEventListener('mousedown',myclick);
+            document.addEventListener('mouseup',clickOver);
+            document.addEventListener('keydown',myPress);
+            document.addEventListener('keyup',pressOver);            
+            
+        </script>
+    </body>
+
+</html>
